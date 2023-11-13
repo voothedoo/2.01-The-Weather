@@ -34,7 +34,7 @@ searchBtn.addEventListener("click", async (event) => {
 
   //update DOM values
   city.textContent = `${locationData.results[0].name}`;
-  currentTemperature.textContent = `${Math.floor(weatherData.current.temperature_2m)}°C`;
+  currentTemperature.textContent = `${Math.round(weatherData.current.temperature_2m)}°C`;
   date.textContent = `${weatherData.current.time}`;
   //to be continued
 

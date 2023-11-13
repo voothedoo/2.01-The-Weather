@@ -1,0 +1,88 @@
+@use "../styles/partials/_index" as *;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,200&family=Open+Sans:wght@400;500;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, "sans-serif";
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    form.search-section {
+      width: 90vw;
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 0;
+      input.search-input {
+        height: 2rem;
+        width: 70vw;
+        border-radius: 3rem;
+        border: 1px solid $main-color;
+      }
+      input.search-input::placeholder {
+        padding-left: 0.8rem;
+      }
+      button.search-btn {
+        width: 17vw;
+        border-radius: 3rem;
+        border: none;
+        background-color: $main-color;
+        color: whitesmoke;
+      }
+    }
+  }
+  main {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid $main-color;
+    border-radius: 1rem;
+    div.current-weather {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      div.location {
+        h1.city {
+          font-size: 1.7rem;
+        }
+        p.date {
+          font-size: 1rem;
+          font-style: italic;
+        }
+      }
+      div.temperature-section {
+        h2.current-temperature {
+          font-size: 2.5rem;
+        }
+        div.day-night {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+    }
+    div.future-weather {
+      width: 100%;
+      height: fit-content;
+      margin-top: 3rem;
+      display: flex;
+      overflow: scroll;
+      div {
+        margin-right: 1.2rem;
+      }
+    }
+  }
+}

@@ -14,6 +14,7 @@ body {
   align-items: center;
   width: 100vw;
   min-height: 100vh;
+  background-color: rgb(37, 37, 37);
   header {
     width: 100%;
     display: flex;
@@ -28,14 +29,22 @@ body {
         width: 70vw;
         border-radius: 3rem;
         border: 1px solid $main-color;
+        background-color: whitesmoke;
+        padding-left: 0.8rem;
       }
       input.search-input::placeholder {
         padding-left: 0.8rem;
+        font-size: 1rem;
       }
       button.search-btn {
         width: 17vw;
         border-radius: 3rem;
-        border: none;
+        border: 1px $main-color solid;
+        color: $main-color;
+        font-size: 1rem;
+        background-color: whitesmoke;
+      }
+      button.search-btn:hover {
         background-color: $main-color;
         color: whitesmoke;
       }
@@ -47,18 +56,26 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-    border: 1px solid $main-color;
-    border-radius: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-image: url(../images/SF.jpg);
+    background-size: cover;
     div.current-weather {
       width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      background-color: $transparent-bg;
+      padding: 10px;
+      border-radius: 10px;
+
       div.location {
         h1.city {
           font-size: 1.7rem;
         }
         p.date {
+          display: flex;
+          flex-wrap: wrap;
           font-size: 1rem;
           font-style: italic;
         }
@@ -79,9 +96,21 @@ body {
       height: fit-content;
       margin-top: 3rem;
       display: flex;
+      justify-content: space-around;
+      text-align: center;
       overflow: scroll;
+      background-color: $transparent-bg;
+      padding: 10px;
+      border-radius: 10px;
       div {
-        margin-right: 1.2rem;
+        padding: 0 0.75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h3.day {
+          line-height: 1rem;
+          font-weight: 600;
+        }
       }
     }
   }

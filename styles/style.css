@@ -12,6 +12,7 @@ body {
   align-items: center;
   width: 100vw;
   min-height: 100vh;
+  background-color: rgb(37, 37, 37);
 }
 body header {
   width: 100%;
@@ -28,19 +29,28 @@ body header form.search-section input.search-input {
   height: 2rem;
   width: 70vw;
   border-radius: 3rem;
-  border: 1px solid #8a2be2;
+  border: 1px solid rgb(0, 52, 117);
+  background-color: whitesmoke;
+  padding-left: 0.8rem;
 }
 body header form.search-section input.search-input::-moz-placeholder {
   padding-left: 0.8rem;
+  font-size: 1rem;
 }
 body header form.search-section input.search-input::placeholder {
   padding-left: 0.8rem;
+  font-size: 1rem;
 }
 body header form.search-section button.search-btn {
   width: 17vw;
   border-radius: 3rem;
-  border: none;
-  background-color: #8a2be2;
+  border: 1px rgb(0, 52, 117) solid;
+  color: rgb(0, 52, 117);
+  font-size: 1rem;
+  background-color: whitesmoke;
+}
+body header form.search-section button.search-btn:hover {
+  background-color: rgb(0, 52, 117);
   color: whitesmoke;
 }
 body main {
@@ -49,19 +59,26 @@ body main {
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  border: 1px solid #8a2be2;
-  border-radius: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-image: url(../images/SF.jpg);
+  background-size: cover;
 }
 body main div.current-weather {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: rgba(245, 245, 245, 0.55);
+  padding: 10px;
+  border-radius: 10px;
 }
 body main div.current-weather div.location h1.city {
   font-size: 1.7rem;
 }
 body main div.current-weather div.location p.date {
+  display: flex;
+  flex-wrap: wrap;
   font-size: 1rem;
   font-style: italic;
 }
@@ -79,8 +96,20 @@ body main div.future-weather {
   height: fit-content;
   margin-top: 3rem;
   display: flex;
+  justify-content: space-around;
+  text-align: center;
   overflow: scroll;
+  background-color: rgba(245, 245, 245, 0.55);
+  padding: 10px;
+  border-radius: 10px;
 }
 body main div.future-weather div {
-  margin-right: 1.2rem;
+  padding: 0 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body main div.future-weather div h3.day {
+  line-height: 1rem;
+  font-weight: 600;
 }/*# sourceMappingURL=style.css.map */

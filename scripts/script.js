@@ -32,13 +32,11 @@ searchBtn.addEventListener("click", async (event) => {
   console.log(weatherData);
   console.log(weatherData.current.temperature_2m);
 
-
-
-
+  //update DOM values
   city.textContent = `${locationData.results[0].name}`;
   currentTemperature.textContent = `${Math.floor(weatherData.current.temperature_2m)}°C`;
   date.textContent = `${weatherData.current.time}`;
-
+  //to be continued
 
 
 

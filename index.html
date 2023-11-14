@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="styles/style.css" />
-    <script src="scripts/script.js" defer></script>
+    <script src="scripts/script.js" type="module" defer></script>
   </head>
   <body>
     <header>
@@ -24,15 +24,19 @@
         <div class="location">
           <h1 class="city">San Francisco</h1>
           <div class="country-div">
-            <img src="" alt="flag" id="flag" />
+            <img
+              src="https://flagsapi.com/US/flat/32.png"
+              alt="flag"
+              id="flag"
+            />
             <p class="country">USA</p>
           </div>
-          <p class="icon">Icon of weather</p>
+          <img class="icon" alt="weather-icon" src="" />
         </div>
         <div class="temperature-section">
-          <h2 class="current-temperature">12 C</h2>
+          <h2 class="current-temperature">23 C</h2>
           <div class="day-night">
-            <p class="day">12 C</p>
+            <p class="day">24 C</p>
             <p class="night">3 C</p>
           </div>
         </div>
@@ -40,29 +44,29 @@
       <div class="graph-section"></div>
       <div class="future-weather">
         <div class="one-day">
-          <h3 class="day">Tue</h3>
-          <p>icon</p>
-          <p>12C</p>
+          <h3 class="future-date">Tue</h3>
+          <img src="" alt="ic" class="future-icon" />
+          <p class="future-temperature">12C</p>
         </div>
         <div class="two-day">
-          <h3 class="day">Wed</h3>
-          <p>icon</p>
-          <p>12C</p>
+          <h3 class="future-date">Wed</h3>
+          <img src="" alt="ic" class="future-icon" />
+          <p class="future-temperature">12C</p>
         </div>
         <div class="three-day">
-          <h3 class="day">Thu</h3>
-          <p>icon</p>
-          <p>12C</p>
+          <h3 class="future-date">Thu</h3>
+          <img src="" alt="ic" class="future-icon" />
+          <p class="future-temperature">12C</p>
         </div>
         <div class="four-day">
-          <h3 class="day">Fri</h3>
-          <p>icon</p>
-          <p>12C</p>
+          <h3 class="future-date">Fri</h3>
+          <img src="" alt="ic" class="future-icon" />
+          <p class="future-temperature">12C</p>
         </div>
         <div class="five-day">
-          <h3 class="day">Sat</h3>
-          <p>icon</p>
-          <p>12C</p>
+          <h3 class="future-date">Sat</h3>
+          <img src="" alt="ic" class="future-icon" />
+          <p class="future-temperature">12C</p>
         </div>
       </div>
     </main>

@@ -123,6 +123,26 @@
           }
         }
       }
+      div.extra-info {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: $transparent-bg;
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 3rem;
+        div.hourly-weather {
+          display: flex;
+          flex-direction: row;
+          overflow: auto;
+          div.hourly {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        }
+      }
       div.future-weather {
         width: 100%;
         height: fit-content;
@@ -237,7 +257,22 @@
           }
         }
         div.temperature-section {
-          align-self: flex-end;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          text-align: center;
+          div.uv-index {
+            margin-bottom: 2rem;
+            text-align: center;
+            h2 {
+              font-weight: 400;
+            }
+            p {
+              font-size: 1.5rem;
+              font-weight: 900;
+            }
+          }
           h2.current-temperature {
             font-size: 2.5rem;
           }

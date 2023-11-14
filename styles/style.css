@@ -66,6 +66,7 @@
     background-size: cover;
   }
   body main div.current-weather {
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -97,7 +98,22 @@
     width: 7rem;
   }
   body main div.current-weather div.temperature-section {
-    align-self: flex-end;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  }
+  body main div.current-weather div.temperature-section div.uv-index {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  body main div.current-weather div.temperature-section div.uv-index h2 {
+    font-weight: 400;
+  }
+  body main div.current-weather div.temperature-section div.uv-index p {
+    font-size: 1.5rem;
+    font-weight: 900;
   }
   body main div.current-weather div.temperature-section h2.current-temperature {
     font-size: 2.5rem;
@@ -109,9 +125,6 @@
   }
   body main div.current-weather div.temperature-section div.day-night p.day {
     font-weight: bold;
-  }
-  body main div.hourly-weather {
-    display: none;
   }
   body main div.future-weather {
     width: 100%;

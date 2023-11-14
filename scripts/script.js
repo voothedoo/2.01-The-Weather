@@ -4,6 +4,7 @@ const searchBtn = document.querySelector(".search-btn");
 const searchInput = document.querySelector(".search-input");
 const city = document.querySelector(".city");
 const country = document.querySelector(".country");
+const uvIndex = document.querySelector(".uv-index-value");
 const currentTemperature = document.querySelector(".current-temperature");
 const day = document.querySelector(".day");
 const night = document.querySelector(".night");
@@ -45,7 +46,7 @@ searchBtn.addEventListener("click", async (event) => {
   console.log(locationData);
 
 
-  const weatherApi = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m,apparent_temperature,is_day,precipitation,rain,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,weather_code,cloud_cover,visibility,wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max`;
+  const weatherApi = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m,apparent_temperature,is_day,precipitation,rain,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,weather_code,cloud_cover,visibility,wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m&daily=weather_code,uv_index_max,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max`;
   const weatherResponse = await fetch(weatherApi);
   const weatherData = await weatherResponse.json();
   console.log(weatherData);
@@ -56,11 +57,16 @@ searchBtn.addEventListener("click", async (event) => {
   country.textContent = `${locationData.results[0].country}`; //country name
   currentTemperature.textContent = `${Math.round(weatherData.current.temperature_2m)}°C`;
   flag.src = `https://flagsapi.com/${locationData.results[0].country_code}/flat/32.png`;
-  day.textContent = `${Math.round(weatherData.daily.temperature_2m_max[0])}°`;
-  night.textContent = `${Math.round(weatherData.daily.temperature_2m_min[0])}°`;
+  day.textContent = `↑${Math.round(weatherData.daily.temperature_2m_max[0])}°`;
+  night.textContent = `↓${Math.round(weatherData.daily.temperature_2m_min[0])}°`;
   for (let i = 0; i < futureTemperature.length; i++) {
     futureTemperature[i].textContent = `${Math.round(weatherData.daily.temperature_2m_max[i + 1])}°`;
   }
+  //UV index
+  const currentUvIndex = weatherData.daily.uv_index_max[0];
+  uvIndex.textContent = `${currentUvIndex}`;
+
+  console.log(currentUvIndex);
 
   //weather icons
   const weatherCode = weatherIcons[weatherData.daily.weather_code[0]];
@@ -88,14 +94,12 @@ searchBtn.addEventListener("click", async (event) => {
   main.style.backgroundImage = `url(${randomImage})`;
 
   //hourly weather
-
   hourlyWeather.innerHTML = "";
+
   for (let i = 0; i < 24; i++) {
     let hourlyDiv = document.createElement("div");
     hourlyDiv.classList.add("hourly");
     hourlyWeather.append(hourlyDiv);
-
-
 
     let hour = document.createElement("p");
     let hourlyTime = weatherData.hourly.time[i].split("T");
@@ -107,15 +111,12 @@ searchBtn.addEventListener("click", async (event) => {
     icon.classList.add("hourly-icon");
     let justHour = hourlyTime[1].split(":");
     let hourlyCode = weatherIcons[weatherData.hourly.weather_code[i]];
-    console.log(parseInt(justHour[0]));
-    console.log(hourlyCode);
     if (parseInt(justHour[0]) > 19 || justHour[0] < 7) {
       icon.src = `${hourlyCode.night.image}`;
     } else {
       icon.src = `${hourlyCode.day.image}`;
     }
     hourlyDiv.append(icon);
-
 
     let hourlyTemp = document.createElement("p");
     hourlyTemp.classList.add("hour-temp");

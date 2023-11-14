@@ -13,6 +13,9 @@ const futureTemperature = document.querySelectorAll(".future-temperature");
 const futureIcon = document.querySelectorAll(".future-icon");
 const futureDate = document.querySelectorAll(".future-date");
 
+const main = document.querySelector("main");
+
+
 
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"];
@@ -20,7 +23,10 @@ const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 let lat;
 let long;
 
-//API's
+const randomNumber = () => {
+  const number = Math.floor(Math.random() * 6);
+  return number;
+};
 
 searchBtn.addEventListener("click", async (event) => {
   event.preventDefault();
@@ -68,9 +74,17 @@ searchBtn.addEventListener("click", async (event) => {
   //future dates
   for (let i = 0; i < 5; i++) {
     const dates = weatherData.daily.time[i + 1].split("-");
-    console.log(dates);
     futureDate[i].textContent = `${dates[2]}. ${months[dates[1] - 1]}`;
   }
+
+  //background image
+  const unsplashApi = `https://api.unsplash.com/search/photos?query=${locationData.results[0].name}&client_id=0T1MflLrIfd3obk298msTbyAhxUWI1u09oJNjB_sD14`;
+  const unsplashResponse = await fetch(unsplashApi);
+  const unsplashData = await unsplashResponse.json();
+  const randomImage = unsplashData.results[randomNumber()].urls.regular;
+  console.log(unsplashData);
+  console.log(randomImage);
+  main.style.backgroundImage = `url(${randomImage})`;
 
 });
 

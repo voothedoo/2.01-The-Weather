@@ -76,11 +76,16 @@ body main div.current-weather {
 body main div.current-weather div.location h1.city {
   font-size: 1.7rem;
 }
-body main div.current-weather div.location p.date {
+body main div.current-weather div.location div.country-div {
+  display: flex;
+  align-items: center;
+}
+body main div.current-weather div.location div.country-div p.country {
   display: flex;
   flex-wrap: wrap;
   font-size: 1rem;
   font-style: italic;
+  margin-left: 3px;
 }
 body main div.current-weather div.temperature-section h2.current-temperature {
   font-size: 2.5rem;

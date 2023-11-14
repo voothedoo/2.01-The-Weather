@@ -73,11 +73,16 @@ body {
         h1.city {
           font-size: 1.7rem;
         }
-        p.date {
+        div.country-div {
           display: flex;
-          flex-wrap: wrap;
-          font-size: 1rem;
-          font-style: italic;
+          align-items: center;
+          p.country {
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            font-style: italic;
+            margin-left: 3px;
+          }
         }
       }
       div.temperature-section {

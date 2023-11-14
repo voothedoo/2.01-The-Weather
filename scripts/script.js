@@ -13,6 +13,9 @@ const futureTemperature = document.querySelectorAll(".future-temperature");
 const futureIcon = document.querySelectorAll(".future-icon");
 const futureDate = document.querySelectorAll(".future-date");
 
+const hourlyWeather = document.querySelector(".hourly-weather");
+
+
 const main = document.querySelector("main");
 
 
@@ -82,9 +85,47 @@ searchBtn.addEventListener("click", async (event) => {
   const unsplashResponse = await fetch(unsplashApi);
   const unsplashData = await unsplashResponse.json();
   const randomImage = unsplashData.results[randomNumber()].urls.regular;
-  console.log(unsplashData);
-  console.log(randomImage);
   main.style.backgroundImage = `url(${randomImage})`;
+
+  //hourly weather
+
+  hourlyWeather.innerHTML = "";
+  for (let i = 0; i < 24; i++) {
+    let hourlyDiv = document.createElement("div");
+    hourlyDiv.classList.add("hourly");
+    hourlyWeather.append(hourlyDiv);
+
+
+
+    let hour = document.createElement("p");
+    let hourlyTime = weatherData.hourly.time[i].split("T");
+    hour.textContent = `${hourlyTime[1]}`;
+    hour.classList.add("hour");
+    hourlyDiv.prepend(hour);
+
+    let icon = document.createElement("img");
+    icon.classList.add("hourly-icon");
+    let justHour = hourlyTime[1].split(":");
+    let hourlyCode = weatherIcons[weatherData.hourly.weather_code[i]];
+    console.log(parseInt(justHour[0]));
+    console.log(hourlyCode);
+    if (parseInt(justHour[0]) > 19 || justHour[0] < 7) {
+      icon.src = `${hourlyCode.night.image}`;
+    } else {
+      icon.src = `${hourlyCode.day.image}`;
+    }
+    hourlyDiv.append(icon);
+
+
+    let hourlyTemp = document.createElement("p");
+    hourlyTemp.classList.add("hour-temp");
+    hourlyDiv.append(hourlyTemp);
+    hourlyTemp.textContent = `${Math.round(weatherData.hourly.temperature_2m[i])}°`;
+
+
+  }
+
+
 
 });
 

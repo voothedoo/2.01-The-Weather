@@ -110,14 +110,170 @@
   body main div.current-weather div.temperature-section div.day-night p.day {
     font-weight: bold;
   }
+  body main div.hourly-weather {
+    display: none;
+  }
   body main div.future-weather {
     width: 100%;
     height: -moz-fit-content;
     height: fit-content;
     margin-top: 3rem;
     display: flex;
+    justify-content: space-between;
     text-align: center;
-    overflow: scroll;
+    overflow: auto;
+    background-color: rgba(245, 245, 245, 0.55);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  body main div.future-weather div {
+    padding: 0 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body main div.future-weather div h3.future-date {
+    line-height: 1rem;
+    font-weight: 600;
+    max-width: 50px;
+  }
+  body main div.future-weather div img.future-icon {
+    width: 64px;
+  }
+}
+@media (max-width: 1199px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgb(37, 37, 37);
+  }
+  body header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  body header form.search-section {
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+  body header form.search-section input.search-input {
+    height: 2rem;
+    width: 70vw;
+    border-radius: 3rem;
+    border: 1px solid rgb(0, 52, 117);
+    background-color: whitesmoke;
+    padding-left: 0.8rem;
+  }
+  body header form.search-section input.search-input::-moz-placeholder {
+    padding-left: 0.8rem;
+    font-size: 1rem;
+  }
+  body header form.search-section input.search-input::placeholder {
+    padding-left: 0.8rem;
+    font-size: 1rem;
+  }
+  body header form.search-section button.search-btn {
+    width: 17vw;
+    border-radius: 3rem;
+    border: 1px rgb(0, 52, 117) solid;
+    color: rgb(0, 52, 117);
+    font-size: 1rem;
+    background-color: whitesmoke;
+  }
+  body header form.search-section button.search-btn:hover {
+    background-color: rgb(0, 52, 117);
+    color: whitesmoke;
+  }
+  body main {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-image: url(../images/SF.jpg);
+    background-size: cover;
+  }
+  body main div.current-weather {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(245, 245, 245, 0.55);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  body main div.current-weather div.location {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  body main div.current-weather div.location h1.city {
+    font-size: 1.7rem;
+  }
+  body main div.current-weather div.location div.country-div {
+    display: flex;
+    align-items: center;
+  }
+  body main div.current-weather div.location div.country-div p.country {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    font-style: italic;
+    margin-left: 3px;
+  }
+  body main div.current-weather div.location img.icon {
+    width: 7rem;
+  }
+  body main div.current-weather div.temperature-section {
+    align-self: flex-end;
+  }
+  body main div.current-weather div.temperature-section h2.current-temperature {
+    font-size: 2.5rem;
+  }
+  body main div.current-weather div.temperature-section div.day-night {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  body main div.current-weather div.temperature-section div.day-night p.day {
+    font-weight: bold;
+  }
+  body main div.extra-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(245, 245, 245, 0.55);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 3rem;
+  }
+  body main div.extra-info div.hourly-weather {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+  }
+  body main div.extra-info div.hourly-weather div.hourly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body main div.future-weather {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    overflow: auto;
     background-color: rgba(245, 245, 245, 0.55);
     padding: 10px;
     border-radius: 10px;

@@ -16,6 +16,7 @@
     width: 100vw;
     min-height: 100vh;
     background-color: rgb(37, 37, 37);
+    color: whitesmoke;
     header {
       width: 100%;
       display: flex;
@@ -61,22 +62,26 @@
       border-radius: 0.5rem;
       background-image: url(../images/SF.jpg);
       background-size: cover;
+      text-shadow:
+        2px 2px 2px #474747,
+        2px 2px 2px rgba(206, 89, 55, 0);
       div.current-weather {
-        height: 100%;
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color: $transparent-bg;
+        @include background-glass;
         padding: 10px;
         border-radius: 10px;
-
         div.location {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           h1.city {
             font-size: 1.7rem;
+            text-shadow:
+              2px 2px 2px #474747,
+              2px 2px 2px rgba(206, 89, 55, 0);
           }
           div.country-div {
             display: flex;
@@ -90,7 +95,7 @@
             }
           }
           img.icon {
-            width: 7rem;
+            max-width: 100px;
           }
         }
         div.temperature-section {
@@ -128,7 +133,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color: $transparent-bg;
+        @include background-glass;
         padding: 10px;
         border-radius: 10px;
         margin-top: 3rem;
@@ -151,170 +156,7 @@
         justify-content: space-between;
         text-align: center;
         overflow: auto;
-        background-color: $transparent-bg;
-        padding: 10px;
-        border-radius: 10px;
-        div {
-          padding: 0 0.75rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          h3.future-date {
-            line-height: 1rem;
-            font-weight: 600;
-            max-width: 50px;
-          }
-          img.future-icon {
-            width: 64px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 1199px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    min-height: 100vh;
-    background-color: rgb(37, 37, 37);
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      form.search-section {
-        width: 90vw;
-        display: flex;
-        justify-content: space-between;
-        margin: 30px 0;
-        input.search-input {
-          height: 2rem;
-          width: 70vw;
-          border-radius: 3rem;
-          border: 1px solid $main-color;
-          background-color: whitesmoke;
-          padding-left: 0.8rem;
-        }
-        input.search-input::placeholder {
-          padding-left: 0.8rem;
-          font-size: 1rem;
-        }
-        button.search-btn {
-          width: 17vw;
-          border-radius: 3rem;
-          border: 1px $main-color solid;
-          color: $main-color;
-          font-size: 1rem;
-          background-color: whitesmoke;
-        }
-        button.search-btn:hover {
-          background-color: $main-color;
-          color: whitesmoke;
-        }
-      }
-    }
-    main {
-      width: 90vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem;
-      border: none;
-      border-radius: 0.5rem;
-      background-image: url(../images/SF.jpg);
-      background-size: cover;
-      div.current-weather {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: $transparent-bg;
-        padding: 10px;
-        border-radius: 10px;
-        div.location {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          h1.city {
-            font-size: 1.7rem;
-          }
-          div.country-div {
-            display: flex;
-            align-items: center;
-            p.country {
-              display: flex;
-              flex-wrap: wrap;
-              font-size: 1rem;
-              font-style: italic;
-              margin-left: 3px;
-            }
-          }
-          img.icon {
-            width: 7rem;
-          }
-        }
-        div.temperature-section {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          text-align: center;
-          div.uv-index {
-            margin-bottom: 2rem;
-            text-align: center;
-            h2 {
-              font-weight: 400;
-            }
-            p {
-              font-size: 1.5rem;
-              font-weight: 900;
-            }
-          }
-          h2.current-temperature {
-            font-size: 2.5rem;
-          }
-          div.day-night {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            p.day {
-              font-weight: bold;
-            }
-          }
-        }
-      }
-      div.extra-info {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: $transparent-bg;
-        padding: 10px;
-        border-radius: 10px;
-        margin-top: 3rem;
-        div.hourly-weather {
-          display: flex;
-          flex-direction: row;
-          overflow: auto;
-          div.hourly {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-        }
-      }
-      div.future-weather {
-        width: 100%;
-        height: fit-content;
-        margin-top: 3rem;
-        display: flex;
-        justify-content: space-between;
-        text-align: center;
-        overflow: auto;
-        background-color: $transparent-bg;
+        @include background-glass;
         padding: 10px;
         border-radius: 10px;
         div {

@@ -50,6 +50,7 @@ searchBtn.addEventListener("click", async (event) => {
   country.textContent = `${locationData.results[0].country}`; //country name
   currentTemperature.textContent = `${Math.round(weatherData.current.temperature_2m)}°C`;
   flag.src = `https://flagsapi.com/${locationData.results[0].country_code}/flat/32.png`;
+  flag.alt = `Flag of ${locationData.results[0].country}`;
   day.textContent = `↑${Math.round(weatherData.daily.temperature_2m_max[0])}°`;
   night.textContent = `↓${Math.round(weatherData.daily.temperature_2m_min[0])}°`;
   for (let i = 0; i < futureTemperature.length; i++) {
@@ -59,19 +60,20 @@ searchBtn.addEventListener("click", async (event) => {
   const currentUvIndex = weatherData.daily.uv_index_max[0];
   uvIndex.textContent = `${currentUvIndex}`;
 
-  console.log(currentUvIndex);
-
   //weather icons
   const weatherCode = weatherIcons[weatherData.daily.weather_code[0]];
   if (weatherData.current.is_day) {
     currentIcon.src = weatherCode.day.image;
+    currentIcon.alt = `Icon showing ${weatherCode.day.description}`;
   } else {
     currentIcon.src = weatherCode.night.image;
+    currentIcon.alt = `Icon showing ${weatherCode.night.description}`;
   }
   //future icons
   for (let i = 0; i < futureIcon.length; i++) {
     const futureCode = weatherIcons[weatherData.daily.weather_code[i + 1]];
     futureIcon[i].src = futureCode.day.image;
+    futureIcon[i].alt = `Icon showing ${futureCode.day.description}`;
   }
   //future dates
   for (let i = 0; i < 5; i++) {
@@ -106,8 +108,10 @@ searchBtn.addEventListener("click", async (event) => {
     let hourlyCode = weatherIcons[weatherData.hourly.weather_code[i]];
     if (parseInt(justHour[0]) > 19 || justHour[0] < 7) {
       icon.src = `${hourlyCode.night.image}`;
+      icon.alt = `Icon showing ${hourlyCode.night.description}`;
     } else {
       icon.src = `${hourlyCode.day.image}`;
+      icon.alt = `Icon showing ${hourlyCode.day.description}`;
     }
     hourlyDiv.append(icon);
 
@@ -119,3 +123,4 @@ searchBtn.addEventListener("click", async (event) => {
   }
 });
 
+//TODO: description of imgs

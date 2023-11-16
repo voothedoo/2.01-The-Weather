@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Your go-to weather app for accurate forecasts and real time updates"
+    />
     <title>Weather App</title>
     <link rel="stylesheet" href="styles/style.css" />
     <script src="scripts/script.js" type="module" defer></script>
@@ -35,7 +39,7 @@
         </div>
         <div class="temperature-section">
           <div class="uv-index">
-            <h2>Max UV Index</h2>
+            <h2>UV Index</h2>
             <p class="uv-index-value">2</p>
           </div>
           <h2 class="current-temperature">23 C</h2>
@@ -46,10 +50,10 @@
         </div>
       </div>
       <div class="extra-info">
-        <div class="hourly-weather"></div>
+        <div class="hourly-weather" tabindex="0"></div>
       </div>
       <div class="graph-section"></div>
-      <div class="future-weather">
+      <div class="future-weather" tabindex="0">
         <div class="one-day">
           <h3 class="future-date">Tue</h3>
           <img src="" alt="" class="future-icon" />

@@ -26,6 +26,7 @@ const randomNumber = () => {
   return number;
 };
 
+
 searchBtn.addEventListener("click", async (event) => {
   event.preventDefault();
   main.style.display = "flex";
@@ -120,6 +121,20 @@ searchBtn.addEventListener("click", async (event) => {
     hourlyTemp.textContent = `${Math.round(weatherData.hourly.temperature_2m[i])}°`;
 
   }
-});
 
-//TODO: description of imgs
+  //chart 
+
+  // const abc = chart.data.labels;
+  // for (let i = 0; i < abc.length; i++) {
+  //   delete abc[i];
+  // }
+
+  // for (let j = 0; j < 25; j++) {
+  //   abc.push(j);
+  // }
+
+  // console.log(abc);
+
+
+
+});

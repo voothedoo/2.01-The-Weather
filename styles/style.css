@@ -8,6 +8,20 @@
   font-family: Poppins, "sans-serif";
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  border-radius: 0px;
+  background: rgba(63, 63, 63, 0.459);
+}
+
 body {
   display: flex;
   flex-direction: column;

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,200&family=Open+Sans:wght@400;500;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600&display=swap");
 * {
@@ -32,7 +33,7 @@ body header form.search-section input.search-input {
   height: 2rem;
   width: 20rem;
   border-radius: 3rem;
-  border: 1px solid rgb(0, 52, 117);
+  border: 1px solid rgba(126, 52, 161, 0.75);
   background-color: whitesmoke;
   padding-left: 0.8rem;
 }
@@ -44,17 +45,33 @@ body header form.search-section input.search-input::placeholder {
   padding-left: 0.8rem;
   font-size: 1rem;
 }
+body header form.search-section input.search-input:focus {
+  box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
 body header form.search-section button.search-btn {
   width: 7rem;
   border-radius: 3rem;
-  border: 1px rgb(0, 52, 117) solid;
-  color: rgb(0, 52, 117);
+  border: 1px rgba(126, 52, 161, 0.75) solid;
+  color: rgba(126, 52, 161, 0.75);
   font-size: 1rem;
   background-color: whitesmoke;
   cursor: pointer;
 }
 body header form.search-section button.search-btn:hover {
-  background-color: rgb(0, 52, 117);
+  background-color: rgba(126, 52, 161, 0.75);
+  color: whitesmoke;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(to right, #6253e1, #852d91, #a3a1ff, #f24645);
+  box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+body header form.search-section button.search-btn:focus {
+  background-color: rgba(126, 52, 161, 0.75);
   color: whitesmoke;
   background-size: 300% 100%;
   border-radius: 50px;
@@ -98,6 +115,125 @@ body main div.current-weather div.location {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+body main div.current-weather div.location .toggle-button-cover {
+  margin-top: 1.3rem;
+  margin-bottom: 0.6rem;
+  display: table-cell;
+  box-sizing: border-box;
+}
+body main div.current-weather div.location .button-cover:before {
+  right: 0;
+  bottom: 0;
+  color: #d7e3e3;
+  font-size: 12px;
+  line-height: 1;
+  padding: 5px;
+}
+body main div.current-weather div.location .button-cover,
+body main div.current-weather div.location .knobs,
+body main div.current-weather div.location .layer {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+body main div.current-weather div.location .button-cover {
+  border-radius: 4px;
+}
+body main div.current-weather div.location .button-cover:before {
+  counter-increment: button-counter;
+  right: 0;
+  bottom: 0;
+  color: #d7e3e3;
+  font-size: 12px;
+  line-height: 1;
+  padding: 5px;
+}
+body main div.current-weather div.location .button-cover,
+body main div.current-weather div.location .knobs,
+body main div.current-weather div.location .layer {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+body main div.current-weather div.location .button {
+  position: relative;
+  top: 50%;
+  width: 74px;
+  height: 36px;
+  margin: -20px auto 0 auto;
+  overflow: hidden;
+}
+body main div.current-weather div.location .button.r,
+body main div.current-weather div.location .button.r .layer {
+  border-radius: 100px;
+}
+body main div.current-weather div.location .button.b2 {
+  border-radius: 2px;
+}
+body main div.current-weather div.location .checkbox {
+  position: relative;
+  margin: 50px 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+body main div.current-weather div.location .knobs {
+  z-index: 2;
+}
+body main div.current-weather div.location .layer {
+  width: 100%;
+  background-color: #ebf7fc;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+body main div.current-weather div.location #button-2 .knobs:before,
+body main div.current-weather div.location #button-2 .knobs:after {
+  content: "C";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 10px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+  background-color: #b0e6ff;
+  border-radius: 50%;
+  transition: 0.3s ease all;
+}
+body main div.current-weather div.location #button-2 .knobs:before {
+  content: "°C";
+  text-shadow: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
+}
+body main div.current-weather div.location #button-2 .knobs:after {
+  content: "°F";
+  text-shadow: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
+}
+body main div.current-weather div.location #button-2 .knobs:after {
+  right: -28px;
+  left: auto;
+  background-color: #b0e6ff;
+}
+body main div.current-weather div.location #button-2 .checkbox:checked + .knobs:before {
+  left: -28px;
+}
+body main div.current-weather div.location #button-2 .checkbox:checked + .knobs:after {
+  right: 4px;
+}
+body main div.current-weather div.location #button-2 .checkbox:checked ~ .layer {
+  background-color: #fcebeb;
 }
 body main div.current-weather div.location h1.city {
   font-family: Domine;
@@ -243,7 +379,7 @@ body main div.future-weather div img.future-icon {
     height: 2rem;
     width: 70vw;
     border-radius: 3rem;
-    border: 1px solid rgb(0, 52, 117);
+    border: 1px solid rgba(126, 52, 161, 0.75);
     background-color: whitesmoke;
     padding-left: 0.8rem;
   }
@@ -258,13 +394,13 @@ body main div.future-weather div img.future-icon {
   body header form.search-section button.search-btn {
     width: 17vw;
     border-radius: 3rem;
-    border: 1px rgb(0, 52, 117) solid;
-    color: rgb(0, 52, 117);
+    border: 1px rgba(126, 52, 161, 0.75) solid;
+    color: rgba(126, 52, 161, 0.75);
     font-size: 1rem;
     background-color: whitesmoke;
   }
   body header form.search-section button.search-btn:hover {
-    background-color: rgb(0, 52, 117);
+    background-color: rgba(126, 52, 161, 0.75);
     color: whitesmoke;
   }
   body main {

@@ -26,6 +26,9 @@ const randomNumber = () => {
   return number;
 };
 
+const celsiusConverter = (celsius) => {
+  return celsius * 9 / 5 + 32;
+};
 
 searchBtn.addEventListener("click", async (event) => {
   event.preventDefault();
@@ -135,6 +138,37 @@ searchBtn.addEventListener("click", async (event) => {
 
   // console.log(abc);
 
+
+
+});
+
+//convert celsius to fahrenheit
+const converter = document.querySelector("#button-2");
+let isCelsius = true;
+
+const convertToF = (temp) => {
+  const array = temp.split("°");
+  const degree = parseInt(array[0]);
+  const fahrenheit = Math.round(degree * 9 / 5 + 32);
+  return fahrenheit;
+};
+
+const convertToC = (temp) => {
+  const array = temp.split("°");
+  const degree = parseInt(array[0]);
+  const celsius = Math.round((degree - 32) * 5 / 9);
+  return celsius;
+};
+
+
+converter.addEventListener("click", () => {
+  if (isCelsius) {
+    currentTemperature.textContent = `${convertToF(currentTemperature.textContent)}°F`;
+    isCelsius = false;
+  } else {
+    currentTemperature.textContent = `${convertToC(currentTemperature.textContent)}°C`;
+    isCelsius = true;
+  }
 
 
 });

@@ -191,3 +191,8 @@ converter.addEventListener("click", () => {
 
 
 });
+
+
+//TODO: horizontal scroll bar
+//TODO: Time
+//TODO:

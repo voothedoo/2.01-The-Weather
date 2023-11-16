@@ -9,7 +9,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track:horizontal {
@@ -320,6 +320,9 @@ body main div.extra-info {
   padding: 10px;
   border-radius: 10px;
   margin-top: 3rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 body main div.extra-info div.hourly-weather {
   display: flex;
@@ -352,7 +355,9 @@ body main div.future-weather {
   display: flex;
   justify-content: space-between;
   text-align: center;
-  overflow-x: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

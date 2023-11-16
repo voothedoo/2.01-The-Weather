@@ -216,7 +216,7 @@ body {
           text-align: center;
           line-height: 1;
           padding: 9px 4px;
-          background-color: #b0e6ff;
+          background-color: red;
           border-radius: 50%;
           transition: 0.3s ease all;
         }
@@ -234,7 +234,7 @@ body {
         #button-2 .knobs:after {
           right: -28px;
           left: auto;
-          background-color: #b0e6ff;
+          background-color: red;
         }
 
         #button-2 .checkbox:checked + .knobs:before {

@@ -53,8 +53,8 @@ searchBtn.addEventListener("click", async (event) => {
   currentTemperature.textContent = `${Math.round(weatherData.current.temperature_2m)}°C`;
   flag.src = `https://flagsapi.com/${locationData.results[0].country_code}/flat/32.png`;
   flag.alt = `Flag of ${locationData.results[0].country}`;
-  day.textContent = `↑${Math.round(weatherData.daily.temperature_2m_max[0])}°`;
-  night.textContent = `↓${Math.round(weatherData.daily.temperature_2m_min[0])}°`;
+  day.textContent = `${Math.round(weatherData.daily.temperature_2m_max[0])}°↑`;
+  night.textContent = `${Math.round(weatherData.daily.temperature_2m_min[0])}°↓`;
   for (let i = 0; i < futureTemperature.length; i++) {
     futureTemperature[i].textContent = `${Math.round(weatherData.daily.temperature_2m_max[i + 1])}°`;
   }
@@ -162,11 +162,30 @@ const convertToC = (temp) => {
 
 
 converter.addEventListener("click", () => {
+  const hourTemp = document.querySelectorAll(".hour-temp");
+  const futureTemp = document.querySelectorAll(".future-temperature");
+
   if (isCelsius) {
     currentTemperature.textContent = `${convertToF(currentTemperature.textContent)}°F`;
+    day.textContent = `${convertToF(day.textContent)}°↑`;
+    night.textContent = `${convertToF(night.textContent)}°↓`;
+    for (let i = 0; i < hourTemp.length; i++) {
+      hourTemp[i].textContent = `${convertToF(hourTemp[i].textContent)}°`;
+    }
+    for (let i = 0; i < futureTemp.length; i++) {
+      futureTemp[i].textContent = `${convertToF(futureTemp[i].textContent)}°`;
+    }
     isCelsius = false;
   } else {
     currentTemperature.textContent = `${convertToC(currentTemperature.textContent)}°C`;
+    day.textContent = `${convertToC(day.textContent)}°↑`;
+    night.textContent = `${convertToC(night.textContent)}°↓`;
+    for (let i = 0; i < hourTemp.length; i++) {
+      hourTemp[i].textContent = `${convertToC(hourTemp[i].textContent)}°`;
+    }
+    for (let i = 0; i < futureTemp.length; i++) {
+      futureTemp[i].textContent = `${convertToC(futureTemp[i].textContent)}°`;
+    }
     isCelsius = true;
   }
 

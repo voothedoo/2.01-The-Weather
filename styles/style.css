@@ -349,6 +349,11 @@ body main div.graph-section {
   border-radius: 10px;
   margin-top: 1rem;
 }
+body main div.graph-section div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 body main div.future-weather {
   width: 30rem;
   margin-top: 3rem;

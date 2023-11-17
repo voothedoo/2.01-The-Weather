@@ -70,7 +70,11 @@
       <div class="extra-info">
         <div class="hourly-weather" tabindex="0"></div>
       </div>
-      <div class="graph-sectsion"></div>
+      <div class="graph-section">
+        <div>
+          <canvas id="myChart" width="1500" height="500"></canvas>
+        </div>
+      </div>
       <div class="future-weather" tabindex="0">
         <div class="one-day">
           <h3 class="future-date"></h3>
@@ -100,5 +104,6 @@
       </div>
     </main>
     <footer role="contentinfo"></footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>
 </html>

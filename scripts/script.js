@@ -16,6 +16,8 @@ const futureDate = document.querySelectorAll(".future-date");
 const hourlyWeather = document.querySelector(".hourly-weather");
 const main = document.querySelector("main");
 
+let chart;
+
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"];
 
 let lat;
@@ -33,6 +35,8 @@ const celsiusConverter = (celsius) => {
 searchBtn.addEventListener("click", async (event) => {
   event.preventDefault();
   main.style.display = "flex";
+
+
   //api's
   const locationApi = `https://geocoding-api.open-meteo.com/v1/search?name=${searchInput.value}&count=1&language=en&format=json`;
 
@@ -93,7 +97,8 @@ searchBtn.addEventListener("click", async (event) => {
 
   //hourly weather
   hourlyWeather.innerHTML = "";
-
+  let hoursForChart = [];
+  let tempsForChart = [];
   for (let i = 0; i < 24; i++) {
     let hourlyDiv = document.createElement("div");
     hourlyDiv.classList.add("hourly");
@@ -104,6 +109,8 @@ searchBtn.addEventListener("click", async (event) => {
     hour.textContent = `${hourlyTime[1]}`;
     hour.classList.add("hour");
     hourlyDiv.prepend(hour);
+
+    hoursForChart.push(hourlyTime[1]);
 
     let icon = document.createElement("img");
     icon.classList.add("hourly-icon");
@@ -122,23 +129,52 @@ searchBtn.addEventListener("click", async (event) => {
     hourlyTemp.classList.add("hour-temp");
     hourlyDiv.append(hourlyTemp);
     hourlyTemp.textContent = `${Math.round(weatherData.hourly.temperature_2m[i])}°`;
-
+    tempsForChart.push(Math.round(weatherData.hourly.temperature_2m[i]));
   }
 
-  //chart 
 
-  // const abc = chart.data.labels;
-  // for (let i = 0; i < abc.length; i++) {
-  //   delete abc[i];
-  // }
+  //chart
+  const ctx = document.getElementById("myChart");
 
-  // for (let j = 0; j < 25; j++) {
-  //   abc.push(j);
-  // }
+  if (chart) {
+    chart.destroy();
+  }
 
-  // console.log(abc);
+  chart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: [],
+      datasets: [
+        {
+          label: "Temperature °C",
+          data: [],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      color: "white",
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: 'white', // Change the color of the y-axis labels
+          },
+        },
+        x: {
+          ticks: {
+            color: 'white'
+          }
+        }
+      },
+    },
+  });
 
-
+  for (let i = 0; i < hoursForChart.length; i++) {
+    chart.data.labels.push(hoursForChart[i]);
+    chart.data.datasets[0].data.push(tempsForChart[i]);
+  }
 
 });
 
@@ -190,9 +226,16 @@ converter.addEventListener("click", () => {
   }
 
 
+
+
+
 });
 
 
 //TODO: horizontal scroll bar
 //TODO: Time
 //TODO:
+
+
+// chart.js
+
